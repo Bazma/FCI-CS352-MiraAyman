@@ -97,5 +97,12 @@ public class Service {
 		return object.toString();
 
 	}
+	/*
+	@POST
+	@Path("/LogOutService")
+	public boolean logoutService() {
+				return true;
 
+	}
+	*/
 }

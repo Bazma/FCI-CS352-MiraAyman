@@ -26,6 +26,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.FCI.SWE.Models.UserEntity;
+import com.FCI.SWE.Models.user;
 
 /**
  * This class contains REST services, also contains action function for web
@@ -53,16 +54,16 @@ public class UserController {
 
 	/**
 	 * Action function to render home page of application, home page contains
-	 * only signup and login buttons
+	 * only sign up and login buttons
 	 * 
-	 * @return enty point page (Home page of this application)
+	 * @return entry point page (Home page of this application)
 	 */
 	@GET
 	@Path("/")
 	public Response index() {
 		return Response.ok(new Viewable("/jsp/entryPoint")).build();
 	}
-
+	
 	/**
 	 * Action function to render login page this function will be executed using
 	 * url like this /rest/login
@@ -75,6 +76,15 @@ public class UserController {
 		return Response.ok(new Viewable("/jsp/login")).build();
 	}
 
+	/*
+	@GET
+	@Path("/logout")
+	public Response logout() {
+		user u = new user();
+		u.NULLUser();
+		return Response.ok(new Viewable("/jsp/entryPoint")).build();
+	}
+	*/
 	/**
 	 * Action function to response to signup request, This function will act as
 	 * a controller part and it will calls RegistrationService to make
@@ -93,7 +103,8 @@ public class UserController {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String response(@FormParam("uname") String uname,
 			@FormParam("email") String email, @FormParam("password") String pass) {
-		String serviceUrl = "http://fci-swe-apps.appspot.com/rest/RegistrationService";
+		String serviceUrl = "http://localhost:8888/rest/RegistrationService";
+	
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "uname=" + uname + "&email=" + email
@@ -159,7 +170,7 @@ public class UserController {
 	@Produces("text/html")
 	public Response home(@FormParam("uname") String uname,
 			@FormParam("password") String pass) {
-		String serviceUrl = "http://fci-swe-apps.appspot.com/rest/LoginService";
+		String serviceUrl = "http://localhost:8888/rest/LoginService";
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "uname=" + uname + "&password=" + pass;
@@ -214,6 +225,16 @@ public class UserController {
 		return null;
 
 	}
+	
+	@POST
+	@Path("/HomeApp")
+	//@Produces(MediaType.TEXT_PLAIN)
+	public Response responselog() {
+	    user.currentactive.NULLUser();
+		return Response.ok(new Viewable("/jsp/entryPoint")).build();
+	 
+	}
+
 
 
 }

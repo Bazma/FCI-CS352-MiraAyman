@@ -59,7 +59,7 @@ public class UserEntity {
 		return password;
 	}
 
-	/**
+/**
 	 * 
 	 * This static method will form UserEntity class using json format contains
 	 * user data
@@ -73,6 +73,10 @@ public class UserEntity {
 		JSONParser parser = new JSONParser();
 		try {
 			JSONObject object = (JSONObject) parser.parse(json);
+			user.currentactive.SetEmail(object.get("email").toString());
+			user.currentactive.SetName(object.get("name").toString());
+			user.currentactive.SetPass(object.get("password").toString());
+			
 			return new UserEntity(object.get("name").toString(), object.get(
 					"email").toString(), object.get("password").toString());
 		} catch (ParseException e) {
@@ -137,4 +141,6 @@ public class UserEntity {
 		return true;
 
 	}
+	
+	
 }
