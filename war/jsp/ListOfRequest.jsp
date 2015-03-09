@@ -7,11 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/social/add" method="post">
-  E-mail : <input type="text" name="emailto" /> <br>
- 
-  
-  <input type="submit" value="Add friend">
+<p>aywa b2a </p>
+<p> Welcome b2a ya ${it.emailto} </p>
+
+ <form action="/social/acceptRequest" method="POST">
+  <input type="submit" value="accept Reguest"/>
+    <input type="text"   name="emailto" />
   </form>
+  
+ <form action="/social/rejectRequest" method="POST">
+  <input type="submit" value="reject Reguest"/>
+  </form>
+  
 </body>
 </html>

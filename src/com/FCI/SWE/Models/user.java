@@ -12,30 +12,31 @@ public class user {
 	 this.upassword=null;
 	 this.uemail=null;
  }
- public void SetName(String n) {
-		n=this.uname;
+  
+ public static void SetName(String n) {
+	 currentactive.uname=n;
 	}
-	public void SetEmail(String mail) {
-		mail=this.uemail;
+	public static void SetEmail(String mail) {
+		currentactive.uemail=mail;
 
 	}
 
-	public void SetPass(String pass) {
-		pass = this.upassword;
+	public static void SetPass(String pass) {
+		currentactive.upassword=pass;
 	}
  
- public String getName() {
-		return uname;
+ public static String getName() {
+		return currentactive.uname;
 	}
 
-	public String getEmail() {
-		return uemail;
+	public static String getEmail() {
+		return currentactive.uemail;
 	}
 
-	public String getPass() {
-		return upassword;
+	public static String getPass() {
+		return currentactive.upassword;
 	}
-	public user getcuractive() {
+	public static user getcuractive() {
 		return currentactive;
 	}
 

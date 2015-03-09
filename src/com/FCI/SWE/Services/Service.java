@@ -25,7 +25,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.FCI.SWE.Models.FriendEntity;
 import com.FCI.SWE.Models.UserEntity;
+import com.FCI.SWE.Models.user;
 
 /**
  * This class contains REST services, also contains action function for web
@@ -80,8 +82,8 @@ public class Service {
 	 */
 	@POST
 	@Path("/LoginService")
-	public String loginService(@FormParam("uname") String uname,
-			@FormParam("password") String pass) {
+	public String loginService(@FormParam("uname") String uname,@FormParam("password") String pass)
+	{
 		JSONObject object = new JSONObject();
 		UserEntity user = UserEntity.getUser(uname, pass);
 		if (user == null) {
@@ -97,12 +99,105 @@ public class Service {
 		return object.toString();
 
 	}
-	/*
 	@POST
-	@Path("/LogOutService")
-	public boolean logoutService() {
-				return true;
+	@Path("/AddFriendService")
+	public String AddFriendService(@FormParam("emailto") String emailto,
+			@FormParam("emailfrom") String emailfrom,@FormParam("status") String stat) 
+	{
+		System.out.println("aho y bntyyy  "+user.currentactive.getEmail()+emailfrom+emailto+stat);
+		
+		boolean check=false;
+		FriendEntity friend = new FriendEntity(emailto, emailfrom,stat);
+		check =friend.getFriend(emailto, emailfrom, stat);
+		System.out.println("bbbbbbbbbbb habla ="+check);
+		JSONObject object = new JSONObject();
+		
+		if (check == true) {
+		
+		    object.put("Status", "OK");
+			friend.saveFriend(stat);
+			
+		}
+		else 
+		{
+			object.put("Status", "Failed");
+		}
+System.out.println(object.toString());
+		return object.toString();
 
 	}
-	*/
-}
+	@POST
+	@Path("/ListReqestService")
+	public String ListrequestsService(@FormParam("emailfrom") String emailfrom,@FormParam("status") String stat) 
+	{
+		System.out.println("aho y bntyyy  "+user.currentactive.getEmail()+emailfrom+stat);
+		
+		FriendEntity friend = new FriendEntity(null,emailfrom,stat);
+		String emailto=friend.GetRequsts(emailfrom, stat);
+		JSONObject object = new JSONObject();
+		object.put("emailto", emailto);
+		return object.toString();
+	}
+
+
+	
+	
+	
+	
+	@POST
+	@Path("/AcceptFriendService")
+	public String AccepttFriendService(@FormParam("emailto") String emailto,
+			@FormParam("emailfrom") String emailfrom) 
+	{
+		System.out.println("aho y bntyyy  "+user.currentactive.getEmail()+emailfrom+emailto);
+		
+		boolean check=false;
+		FriendEntity friend = new FriendEntity(emailto, emailfrom,"");
+		check =friend.AcceptFriends(emailto, emailfrom);
+		System.out.println("bbbbbbbbbbb habla ="+check);
+		JSONObject object = new JSONObject();
+		
+		if (check == true) {
+		
+		    object.put("Status", "OK");
+			friend.savestatusFriend();
+			
+		}
+		else 
+		{
+			object.put("Status", "Failed");
+		}
+        System.out.println(object.toString());
+
+		return object.toString();
+
+	
+	
+	}
+	
+
+
+
+}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

@@ -6,6 +6,7 @@
 </head>
 <body>
 <p> Welcome b2a ya ${it.name} </p>
+<p> Welcome b2a ya ${it.email} </p>
 <p> This is should be user home page </p>
 <p> Current implemented services "http://fci-swe-apps.appspot.com/rest/RegistrationService --- {requires: uname, email, password}" </p>
 <p> and "http://fci-swe-apps.appspot.com/rest/LoginService --- {requires: uname,  password}" </p>
@@ -15,8 +16,13 @@
   <input type="submit" value="Log Out"/>
   </form>
 
+ <form action="/social/addFriend" method="POST">
+  <input type="submit" value="Add FRIEND"/>
+  </form>
 
-
+ <form action="/social/getRequest" method="POST">
+  <input type="submit" value="Get Reguest"/>
+  </form>
 
 </body>
 </html>

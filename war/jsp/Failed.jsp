@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/social/add" method="post">
-  E-mail : <input type="text" name="emailto" /> <br>
- 
-  
-  <input type="submit" value="Add friend">
-  </form>
+<p> The Store Is Empty</p>
 </body>
 </html>
