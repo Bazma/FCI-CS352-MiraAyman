@@ -7,17 +7,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>aywa b2a </p>
-<p> Welcome b2a ya ${it.emailto} </p>
+
+<p> Welcome ya ${it.emailto} </p>
 
  <form action="/social/acceptRequest" method="POST">
-  <input type="submit" value="accept Reguest"/>
+    <input type="submit" value="accept Reguest"/>
     <input type="text"   name="emailto" />
-  </form>
+ </form>
   
- <form action="/social/rejectRequest" method="POST">
-  <input type="submit" value="reject Reguest"/>
-  </form>
+<form action="/social/rejectRequest" method="POST">
+   <input type="submit" value="reject Reguest"/>
+   <input type="text"   name="emailto" />
+</form>
+  
+<form action="/social/HomeApp" method="POST">
+   <input type="submit" value="Log Out"/>
+</form>
   
 </body>
 </html>

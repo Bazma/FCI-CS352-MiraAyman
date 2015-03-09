@@ -7,14 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/social/add" method="post">
-  E-mail : <input type="text" name="emailto" /> <br>
-  <input type="submit" value="Add friend">
-</form>
-  
+
+<p> Friends List : </p>
+<p>  1- ${it.emailto}</p>
+
 <form action="/social/HomeApp" method="POST">
   <input type="submit" value="Log Out"/>
 </form>
-  
+
+
 </body>
 </html>

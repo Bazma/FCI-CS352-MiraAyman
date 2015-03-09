@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p> The Store Is Empty</p>
+<p> The Store Is Empty </p>
+
+<form action="/social/HomeApp" method="POST">
+  <input type="submit" value="Log Out"/>
+</form>
+  
 </body>
 </html>

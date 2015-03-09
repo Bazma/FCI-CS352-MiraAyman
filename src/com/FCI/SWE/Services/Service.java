@@ -40,9 +40,8 @@ import com.FCI.SWE.Models.user;
  */
 @Path("/")
 @Produces("text/html")
-public class Service {
-	
-	
+public class Service
+{
 	/*@GET
 	@Path("/index")
 	public Response index() {
@@ -64,8 +63,8 @@ public class Service {
 	 */
 	@POST
 	@Path("/RegistrationService")
-	public String registrationService(@FormParam("uname") String uname,
-			@FormParam("email") String email, @FormParam("password") String pass) {
+	public String registrationService(@FormParam("uname") String uname,@FormParam("email") String email, @FormParam("password") String pass)
+	{
 		UserEntity user = new UserEntity(uname, email, pass);
 		user.saveUser();
 		JSONObject object = new JSONObject();
@@ -86,52 +85,52 @@ public class Service {
 	{
 		JSONObject object = new JSONObject();
 		UserEntity user = UserEntity.getUser(uname, pass);
-		if (user == null) {
+		if (user == null) 
+		{
 			object.put("Status", "Failed");
-
-		} else {
+		} 
+		else 
+		{
 			object.put("Status", "OK");
 			object.put("name", user.getName());
 			object.put("email", user.getEmail());
 			object.put("password", user.getPass());
 		}
-
 		return object.toString();
-
 	}
+	
+	
 	@POST
 	@Path("/AddFriendService")
-	public String AddFriendService(@FormParam("emailto") String emailto,
-			@FormParam("emailfrom") String emailfrom,@FormParam("status") String stat) 
+	public String AddFriendService(@FormParam("emailto") String emailto,@FormParam("emailfrom") String emailfrom,@FormParam("status") String stat) 
 	{
-		System.out.println("aho y bntyyy  "+user.currentactive.getEmail()+emailfrom+emailto+stat);
-		
+		//System.out.println("aho y bntyyy  "+user.currentactive.getEmail()+emailfrom+emailto+stat);
 		boolean check=false;
 		FriendEntity friend = new FriendEntity(emailto, emailfrom,stat);
 		check =friend.getFriend(emailto, emailfrom, stat);
 		System.out.println("bbbbbbbbbbb habla ="+check);
 		JSONObject object = new JSONObject();
-		
-		if (check == true) {
-		
+		if (check == true) 
+		{
 		    object.put("Status", "OK");
 			friend.saveFriend(stat);
-			
 		}
 		else 
 		{
 			object.put("Status", "Failed");
 		}
-System.out.println(object.toString());
+        System.out.println(object.toString());
 		return object.toString();
-
 	}
+	
+	
+	
+	
 	@POST
 	@Path("/ListReqestService")
 	public String ListrequestsService(@FormParam("emailfrom") String emailfrom,@FormParam("status") String stat) 
 	{
-		System.out.println("aho y bntyyy  "+user.currentactive.getEmail()+emailfrom+stat);
-		
+		//System.out.println("aho y bntyyy  "+user.currentactive.getEmail()+emailfrom+stat);
 		FriendEntity friend = new FriendEntity(null,emailfrom,stat);
 		String emailto=friend.GetRequsts(emailfrom, stat);
 		JSONObject object = new JSONObject();
@@ -139,65 +138,62 @@ System.out.println(object.toString());
 		return object.toString();
 	}
 
-
-	
-	
-	
-	
 	@POST
 	@Path("/AcceptFriendService")
-	public String AccepttFriendService(@FormParam("emailto") String emailto,
-			@FormParam("emailfrom") String emailfrom) 
+	public String AccepttFriendService(@FormParam("emailto") String emailto,@FormParam("emailfrom") String emailfrom) 
 	{
-		System.out.println("aho y bntyyy  "+user.currentactive.getEmail()+emailfrom+emailto);
-		
+		//System.out.println("aho y bntyyy  "+user.currentactive.getEmail()+emailfrom+emailto);
 		boolean check=false;
 		FriendEntity friend = new FriendEntity(emailto, emailfrom,"");
 		check =friend.AcceptFriends(emailto, emailfrom);
-		System.out.println("bbbbbbbbbbb habla ="+check);
+		//System.out.println("bbbbbbbbbbb habla ="+check);
 		JSONObject object = new JSONObject();
-		
-		if (check == true) {
-		
+		if (check == true) 
+		{
 		    object.put("Status", "OK");
 			friend.savestatusFriend();
-			
 		}
 		else 
 		{
 			object.put("Status", "Failed");
 		}
         System.out.println(object.toString());
-
 		return object.toString();
-
-	
-	
 	}
 	
-
-
+	@POST
+	@Path("/RejectFriendService")
+	public String rejectFriendService(@FormParam("emailto") String emailto,@FormParam("emailfrom") String emailfrom) 
+	{
+	//	System.out.println("aho y bntyyy  "+user.currentactive.getEmail()+emailfrom+emailto);
+		boolean check=false;
+		FriendEntity friend = new FriendEntity(emailto, emailfrom,"");
+		check =friend.AcceptFriends(emailto, emailfrom);
+		JSONObject object = new JSONObject();
+		
+		if (check == true)
+		{
+		    object.put("Status", "OK");
+			friend.deletstatusFriend();
+		}
+		else 
+		{
+			object.put("Status", "Failed");
+		}
+       // System.out.println(object.toString());
+		return object.toString();
+	}
+	
+	@POST
+	@Path("/ListFriendService")
+	public String ListfriendsService(@FormParam("emailfrom") String emailfrom,@FormParam("status") String stat) 
+	{
+		//System.out.println("aho y bntyyy  "+user.currentactive.getEmail()+emailfrom+stat);
+		FriendEntity friend = new FriendEntity(null,emailfrom,stat);
+		String emailto=friend.GetRequsts(emailfrom, stat);
+		JSONObject object = new JSONObject();
+		object.put("emailto", emailto);
+		return object.toString();
+	}	
 
 }	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
