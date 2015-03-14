@@ -80,15 +80,7 @@ public class UserController
 		return Response.ok(new Viewable("/jsp/login")).build();
 	}
 
-	/*
-	@GET
-	@Path("/logout")
-	public Response logout() {
-		user u = new user();
-		u.NULLUser();
-		return Response.ok(new Viewable("/jsp/entryPoint")).build();
-	}
-	*/
+
 	/**
 	 * Action function to response to signup request, This function will act as
 	 * a controller part and it will calls RegistrationService to make
@@ -107,7 +99,7 @@ public class UserController
 	@Produces(MediaType.TEXT_PLAIN)
 	public String response(@FormParam("uname") String uname,@FormParam("email") String email, @FormParam("password") String pass)
 	{
-		String serviceUrl = "http://localhost:8888/rest/RegistrationService";
+		String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/RegistrationService";
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "uname=" + uname + "&email=" + email	+ "&password=" + pass;
@@ -173,7 +165,7 @@ public class UserController
 	@Produces("text/html")
 	public Response home(@FormParam("uname") String uname,@FormParam("password") String pass) 
 	{
-		String serviceUrl = "http://localhost:8888/rest/LoginService";
+		String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/LoginService";
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "uname=" + uname + "&password=" + pass;
@@ -231,8 +223,15 @@ public class UserController
 		return null;
 	}
 	
+	
+	/**
+	 * Action function to render home page this function will be executed using
+	 * url like this /rest/
+	 * 
+	 * @return home page
+	 */
 	@POST
-	@Path("/HomeApp")
+	@Path("/")
 	//@Produces(MediaType.TEXT_PLAIN)
 	public Response responselog()
 	{
@@ -240,6 +239,13 @@ public class UserController
 		return Response.ok(new Viewable("/jsp/entryPoint")).build();
 	}
 
+	
+	/**
+	 * Action function to render addfriend page this function will be executed using
+	 * url like this /rest/addfriend
+	 * 
+	 * @return  addfriend page
+	 */
 	@POST
 	@Path("/addFriend")
 	//@Produces(MediaType.TEXT_PLAIN)
@@ -250,7 +256,19 @@ public class UserController
 	
 	
 	
-	
+	/**
+	 * Action function to response to add request, This function will act as
+	 * a controller part and it will calls AddFriendService to make
+	 * add
+	 * 
+	 * @param emailto
+	 *            provided friend emailto
+	 * @param emailfrom
+	 *            provided friend emailfrom
+	 * @param status
+	 *            provided friend status
+	 * @return Status string
+	 */
 	@POST
 	@Path("/add")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -259,7 +277,7 @@ public class UserController
 		stat="0";
 		emailfrom =user.currentactive.getEmail();
 		//System.out.println("aho y ebne  "+user.currentactive.getEmail()+emailfrom+emailto+stat);
-		String serviceUrl = "http://localhost:8888/rest/AddFriendService";
+		String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/AddFriendService";
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "&emailto=" + emailto+ "&emailfrom=" + emailfrom+ "&status=" + stat;
@@ -312,7 +330,17 @@ public class UserController
 	}
 
 	
-	
+	/**
+	 * Action function to response to get request. This function will act as a
+	 * controller part, it will calls ListReqestService to check friend data and get
+	 * friend from datastore
+	 * 
+	 * @param emailfrom
+	 *            provided friend emailfrom
+	 * @param emailto
+	 *            provided friend status
+	 * @return ListOfRequest view
+	 */
 	@POST
 	@Path("/getRequest")
 	@Produces("text/html")
@@ -321,7 +349,7 @@ public class UserController
 				stat="sendfrom";
 				emailfrom =user.currentactive.getEmail();
 				//System.out.println("aho y ebne  "+user.currentactive.getEmail()+emailfrom+stat);
-				String serviceUrl = "http://localhost:8888/rest/ListReqestService";
+				String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/ListReqestService";
 				try {
 					URL url = new URL(serviceUrl);
 					String urlParameters =  "&emailfrom=" + emailfrom+ "&status=" + stat;
@@ -393,7 +421,17 @@ public class UserController
 		}
 	
 	
-	
+	/**
+	 * Action function to response to accept request, This function will act as
+	 * a controller part and it will calls AcceptFriendService to make
+	 * accept request
+	 * 
+	 * @param emailto
+	 *            provided friend emailto
+	 * @param emailfrom
+	 *            provided friend emailfrom
+	 * @return Status string
+	 */
 	@POST
 	@Path("/acceptRequest")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -402,7 +440,7 @@ public class UserController
 		emailfrom = user.currentactive.getEmail();
 		//emailto = ${it.emailto};	
 		//System.out.println("aho y ebne  "+user.currentactive.getEmail()+emailfrom+emailto);	
-		String serviceUrl = "http://localhost:8888/rest/AcceptFriendService";
+		String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/AcceptFriendService";
 		try 
 		{
 			URL url = new URL(serviceUrl);
@@ -456,7 +494,17 @@ public class UserController
 
 
 			
-	
+	/**
+	 * Action function to response to reject request, This function will act as
+	 * a controller part and it will calls RejectFriendService to make
+	 * reject request
+	 * 
+	 * @param emailto
+	 *            provided friend emailto
+	 * @param emailfrom
+	 *            provided friend emailfrom
+	 * @return Status string
+	 */
 	@POST
 	@Path("/rejectRequest")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -464,7 +512,7 @@ public class UserController
 	{
     	emailfrom = user.currentactive.getEmail();	
 		//System.out.println("aho y ebne  "+user.currentactive.getEmail()+emailfrom+emailto);		
-		String serviceUrl = "http://localhost:8888/rest/RejectFriendService";
+		String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/RejectFriendService";
 		try
 		{
 			URL url = new URL(serviceUrl);
@@ -517,7 +565,17 @@ public class UserController
 	}
 
 
-	
+	/**
+	 * Action function to response to get request. This function will act as a
+	 * controller part, it will calls ListFriendService to check friend data and get
+	 * friend from datastore
+	 * 
+	 * @param emailfrom
+	 *            provided friend emailfrom
+	 * @param emailto
+	 *            provided friend status
+	 * @return ListOfFriend view
+	 */
 	@POST
 	@Path("/getfriends")
 	@Produces("text/html")
@@ -526,7 +584,7 @@ public class UserController
 				stat="1";
 				emailfrom =user.currentactive.getEmail();
 				//System.out.println("aho y ebne  "+user.currentactive.getEmail()+emailfrom+stat);		
-				String serviceUrl = "http://localhost:8888/rest/ListFriendService";
+				String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/ListFriendService";
 				try 
 				{
 					URL url = new URL(serviceUrl);

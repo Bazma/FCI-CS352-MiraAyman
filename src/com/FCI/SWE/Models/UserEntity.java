@@ -48,16 +48,28 @@ public class UserEntity
 		this.password = password;
 	}
 
+	/**
+	 * function getName get name to object user
+	 * @return name
+	 */
 	public String getName() 
 	{
 		return name;
 	}
-
+    
+	/**
+	 * function getEmail get email to object user
+	 * @return email
+	 */
 	public String getEmail()
 	{
 		return email;
 	}
 
+	/**
+	 * function getPassword get password to object user
+	 * @return password
+	 */
 	public String getPass()
 	{
 		return password;

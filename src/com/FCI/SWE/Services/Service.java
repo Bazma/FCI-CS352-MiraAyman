@@ -42,14 +42,9 @@ import com.FCI.SWE.Models.user;
 @Produces("text/html")
 public class Service
 {
-	/*@GET
-	@Path("/index")
-	public Response index() {
-		return Response.ok(new Viewable("/jsp/entryPoint")).build();
-	}*/
+	
 
-
-		/**
+	/**
 	 * Registration Rest service, this service will be called to make
 	 * registration. This function will store user data in data store
 	 * 
@@ -100,6 +95,18 @@ public class Service
 	}
 	
 	
+	/**
+	 * Registration Rest service, this service will be called to make
+	 * registration. This function will store user data in data store
+	 * 
+	 * @param emailto
+	 *            provided friend emailto
+	 * @param emailfrom
+	 *            provided friend emailfrom
+	 * @param status
+	 *            provided status
+	 * @return Status json
+	 */
 	@POST
 	@Path("/AddFriendService")
 	public String AddFriendService(@FormParam("emailto") String emailto,@FormParam("emailfrom") String emailfrom,@FormParam("status") String stat) 
@@ -124,8 +131,17 @@ public class Service
 	}
 	
 	
-	
-	
+
+	/**
+	 * ListReqestService Rest service, this service will be called to make
+	 * list request. This function will store friend data in data store
+	 * 
+	 * @param emailfrom
+	 *            provided friend emailfrom
+	 * @param status
+	 *            provided status
+	 * @return Status json
+	 */	
 	@POST
 	@Path("/ListReqestService")
 	public String ListrequestsService(@FormParam("emailfrom") String emailfrom,@FormParam("status") String stat) 
@@ -137,7 +153,18 @@ public class Service
 		object.put("emailto", emailto);
 		return object.toString();
 	}
+	
 
+	/**
+	 * AcceptFriendService Rest service, this service will be called to make
+	 * accept friend. This function will store friend data in data store
+	 * 
+	 * @param emailfrom
+	 *            provided friend emailfrom
+	 * @param emailto
+	 *            provided emailto
+	 * @return Status json
+	 */
 	@POST
 	@Path("/AcceptFriendService")
 	public String AccepttFriendService(@FormParam("emailto") String emailto,@FormParam("emailfrom") String emailfrom) 
@@ -161,6 +188,17 @@ public class Service
 		return object.toString();
 	}
 	
+	
+	/**
+	 * rejecttFriendService Rest service, this service will be called to make
+	 * reject friend. This function will store friend data in data store
+	 * 
+	 * @param emailfrom
+	 *            provided friend emailfrom
+	 * @param emailto
+	 *            provided emailto
+	 * @return Status json
+	 */
 	@POST
 	@Path("/RejectFriendService")
 	public String rejectFriendService(@FormParam("emailto") String emailto,@FormParam("emailfrom") String emailfrom) 

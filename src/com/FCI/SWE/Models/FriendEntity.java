@@ -45,35 +45,48 @@ public class FriendEntity
 			this.status=s;
 		}
 
+		/**
+		 * function getemailto get emailto to object friend
+		 * @return emailto
+		 */
 		public String getemailto()
 		{
 			return emailto;
 		}
 
+		/**
+		 * function setstatus set status to object friend
+		 * @param st
+		 */
 		public void setstatus(String st) 
 		{
 			this.status=st;
 
 		}
 
+		/**
+		 * function getstate get state to object friend
+		 * @return status
+		 */
 		public String getstat() 
 		{
 			return status;
 		}
-
+        
+		/**
+		 * function getemailfrom get emailfrom to object friend
+		 * @return emailform
+		 */
 		public String getemailfrom() 
 		{
 			return emailfrom;
 		}
 
-
 		/**
-		 * 
 		 * This static method will form FriendEntity class using json format contains
 		 * user data
-		 * 
 		 * @param json
-		 *            String in json format contains Friend data
+		 * String in json format contains Friend data
 		 * @return Constructed Friend entity
 		 */
 		public static FriendEntity getFriend(String json) 
@@ -93,17 +106,10 @@ public class FriendEntity
 		}
 
 		/**
-		 * 
 		 * This static method will form UserEntity class using user name and
 		 * password This method will serach for friend in datastore
-		 * 
-		 * @param emailto
-		 *            friend email to
-		 * @param emailfrom
-		 *            friend email from
-		 * @return Constructed friend entity
+		 * @return boolean if friend is found correctly or not
 		 */
-
 		public static boolean getFriend(String emailto, String emailfrom,String st) 
 		{
 			boolean check=false,check1=true;
@@ -182,6 +188,14 @@ public class FriendEntity
 		}
 		
 		
+		/* * 
+		 * This static method will form FriendEntity class using json format contains
+		 * friend data
+		 * 
+		 * @param json
+		 *            String in json format contains Friend data
+		 * @return Constructed emailto
+		 */
 		public static String GetRequsts(String json) 
 		{
 			JSONParser parser = new JSONParser();
@@ -197,9 +211,16 @@ public class FriendEntity
 			}
 		  return null;
 		}
-		
-		
-		
+		/**
+		 * 
+		 * This static method will form FriendEntity class using friend emailfrom and
+		 * status This method will serach for friend in datastore
+		 * @param emailfrom
+		 *            friend emailfrom
+		 * @param st
+		 *            friend status
+		 * @return emailto
+		 */		
 		public static String GetRequsts(String emailfrom,String st)
 		{	
 			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -221,11 +242,13 @@ public class FriendEntity
 			}	
 			       // System.out.println("message1= y hblaaaaaaa  ");			
           return "notfound";
-		}
-
-
+		}		
 		
-		
+		/**
+		 * This static method will form FriendEntity class using friend emailfrom and
+		 * emailto This method will be used to accept friend object in datastore
+		 * @return boolean if friend is accept correctly or not
+		 */
 public static boolean AcceptFriends(String emailfrom,String emailto)
 {
 			boolean check = false,check1=false;
@@ -262,8 +285,10 @@ public static boolean AcceptFriends(String emailfrom,String emailto)
          	return false;      
 }
 
-
-
+/**
+ * This static method will form friendEntity class using friend  emailto ,
+ * emailfrom and status This method will save friend  for friend entity in datastore
+ */
 public void savestatusFriend() 
 {
 	DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
@@ -288,10 +313,12 @@ public void savestatusFriend()
 		} 			
 	}  
 }
-		
-		
 
 
+/**
+ * This static method will form friendEntity class using friend  emailto ,
+ * emailfrom and status This method will delete friend  for friend entity in datastore
+ */
 public void deletstatusFriend()
 {
 	DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
