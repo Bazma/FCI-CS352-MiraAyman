@@ -23,6 +23,7 @@ body {background-color: #FFFACD;}
 <body>
 <p> <h1>Welcome  ${it.name} </h1> </p>
 
+<<<<<<< HEAD
 <form action="/social/TimeLine" method="POST">
   <input type="submit" style="margin-left:27%; margin-right:21%;border-radius:40px;width: 200px; background: #FFFACD;
        color: #000000;  font-size: 150%; " value="NewsFeed"/>
@@ -37,6 +38,8 @@ body {background-color: #FFFACD;}
   <input type="submit" style="margin-left:27%; margin-right:21%;border-radius:40px;width: 200px; background: #FFFACD;
        color: #000000;  font-size: 150%; " value="Notification"/>
 </form>
+=======
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 <form action="/social/addFriend" method="POST">
   <input type="submit" style="margin-left:27%; margin-right:21%;border-radius:40px; width: 200px; background: #FFFACD;
        color: #000000;  font-size: 150%; " value="Add FRIEND"/>
@@ -57,6 +60,7 @@ body {background-color: #FFFACD;}
        color: #000000;  font-size: 150%; " value="Log Out"/>
 </form>
 
+<<<<<<< HEAD
 
 <form action="/social/SendMessages" method="POST">
   <input type="submit" style="margin-left:27%; margin-right:21%;border-radius:40px;width: 200px; background: #FFFACD;
@@ -92,6 +96,8 @@ body {background-color: #FFFACD;}
   <input type="submit" style="margin-left:27%; margin-right:21%;border-radius:40px;width: 200px; background: #FFFACD;
        color: #000000;  font-size: 150%; " value="Like Page"/>
 </form>
+=======
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 <p>  Home Page </p>
 
 </body>

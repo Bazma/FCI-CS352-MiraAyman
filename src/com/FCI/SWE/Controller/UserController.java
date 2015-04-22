@@ -10,7 +10,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+<<<<<<< HEAD
 import java.util.Vector;
+=======
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -21,12 +24,16 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.server.mvc.Viewable;
+<<<<<<< HEAD
 import org.json.simple.JSONArray;
+=======
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import com.FCI.SWE.Models.FriendEntity;
+<<<<<<< HEAD
 import com.FCI.SWE.Models.Notification;
 import com.FCI.SWE.Models.NotificationEntity;
 import com.FCI.SWE.Models.ObserveUser;
@@ -36,6 +43,10 @@ import com.FCI.SWE.Models.UserEntity;
 import com.FCI.SWE.Models.conversation;
 import com.FCI.SWE.Models.user;
 import com.google.cloud.sql.jdbc.Connection;
+=======
+import com.FCI.SWE.Models.UserEntity;
+import com.FCI.SWE.Models.user;
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 
 /**
  * This class contains REST services, also contains action function for web
@@ -46,13 +57,19 @@ import com.google.cloud.sql.jdbc.Connection;
  * @since 2014-02-12
  *
  */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 @Path("/")
 @Produces("text/html")
 public class UserController
 {
+<<<<<<< HEAD
 	public static int count;
 	
+=======
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 	/**
 	 * Action function to render Signup page, this function will be executed
 	 * using url like this /rest/signup
@@ -65,6 +82,7 @@ public class UserController
 	{
 		return Response.ok(new Viewable("/jsp/register")).build();
 	}
+<<<<<<< HEAD
 	
 	
 
@@ -199,6 +217,10 @@ public class UserController
 		return Response.ok(new Viewable("/jsp/Send Message")).build(); 
 	}
 	/**
+=======
+
+	/**
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 	 * Action function to render home page of application, home page contains
 	 * only sign up and login buttons
 	 * 
@@ -243,7 +265,11 @@ public class UserController
 	@Produces(MediaType.TEXT_PLAIN)
 	public String response(@FormParam("uname") String uname,@FormParam("email") String email, @FormParam("password") String pass)
 	{
+<<<<<<< HEAD
 		String serviceUrl = "http://localhost:8888/rest/RegistrationService";
+=======
+		String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/RegistrationService";
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "uname=" + uname + "&email=" + email	+ "&password=" + pass;
@@ -309,7 +335,11 @@ public class UserController
 	@Produces("text/html")
 	public Response home(@FormParam("uname") String uname,@FormParam("password") String pass) 
 	{
+<<<<<<< HEAD
 		String serviceUrl = "http://localhost:8888/rest/LoginService";
+=======
+		String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/LoginService";
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "uname=" + uname + "&password=" + pass;
@@ -421,7 +451,11 @@ public class UserController
 		stat="0";
 		emailfrom =user.currentactive.getEmail();
 		//System.out.println("aho y ebne  "+user.currentactive.getEmail()+emailfrom+emailto+stat);
+<<<<<<< HEAD
 		String serviceUrl = "http://localhost:8888/rest/AddFriendService";
+=======
+		String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/AddFriendService";
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 		try {
 			URL url = new URL(serviceUrl);
 			String urlParameters = "&emailto=" + emailto+ "&emailfrom=" + emailfrom+ "&status=" + stat;
@@ -493,7 +527,11 @@ public class UserController
 				stat="sendfrom";
 				emailfrom =user.currentactive.getEmail();
 				//System.out.println("aho y ebne  "+user.currentactive.getEmail()+emailfrom+stat);
+<<<<<<< HEAD
 				String serviceUrl = "http://localhost:8888/rest/ListReqestService";
+=======
+				String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/ListReqestService";
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 				try {
 					URL url = new URL(serviceUrl);
 					String urlParameters =  "&emailfrom=" + emailfrom+ "&status=" + stat;
@@ -584,7 +622,11 @@ public class UserController
 		emailfrom = user.currentactive.getEmail();
 		//emailto = ${it.emailto};	
 		//System.out.println("aho y ebne  "+user.currentactive.getEmail()+emailfrom+emailto);	
+<<<<<<< HEAD
 		String serviceUrl = "http://localhost:8888/rest/AcceptFriendService";
+=======
+		String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/AcceptFriendService";
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 		try 
 		{
 			URL url = new URL(serviceUrl);
@@ -656,7 +698,11 @@ public class UserController
 	{
     	emailfrom = user.currentactive.getEmail();	
 		//System.out.println("aho y ebne  "+user.currentactive.getEmail()+emailfrom+emailto);		
+<<<<<<< HEAD
 		String serviceUrl = "http://localhost:8888/rest/RejectFriendService";
+=======
+		String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/RejectFriendService";
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 		try
 		{
 			URL url = new URL(serviceUrl);
@@ -728,7 +774,11 @@ public class UserController
 				stat="1";
 				emailfrom =user.currentactive.getEmail();
 				//System.out.println("aho y ebne  "+user.currentactive.getEmail()+emailfrom+stat);		
+<<<<<<< HEAD
 				String serviceUrl = "http://localhost:8888/rest/ListFriendService";
+=======
+				String serviceUrl = "http://socialnetworkmbh2015.appspot.com/rest/ListFriendService";
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 				try 
 				{
 					URL url = new URL(serviceUrl);
@@ -797,6 +847,7 @@ public class UserController
 	
 	
 	
+<<<<<<< HEAD
 	
 	/**
 	 * Action function to response to signup request, This function will act as
@@ -1840,4 +1891,6 @@ public class UserController
 	
 	
 	}		 
+=======
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 }

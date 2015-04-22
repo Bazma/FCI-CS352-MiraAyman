@@ -5,7 +5,11 @@
 <head>
   <title>Welcome!</title>
   
+<<<<<<< HEAD
 <style>	
+=======
+<style>
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 body
  {
     background-color: #1E90FF;

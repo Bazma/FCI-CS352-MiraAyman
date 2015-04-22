@@ -11,7 +11,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+<<<<<<< HEAD
 import java.util.StringTokenizer;
+=======
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -22,11 +25,15 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.server.mvc.Viewable;
+<<<<<<< HEAD
 import org.json.simple.JSONArray;
+=======
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+<<<<<<< HEAD
 import com.FCI.SWE.Controller.UserController;
 import com.FCI.SWE.Models.Command;
 import com.FCI.SWE.Models.ConversationEntity;
@@ -50,6 +57,10 @@ import com.FCI.SWE.Models.custompost;
 import com.FCI.SWE.Models.privacypost;
 import com.FCI.SWE.Models.privatepost;
 import com.FCI.SWE.Models.publicpost;
+=======
+import com.FCI.SWE.Models.FriendEntity;
+import com.FCI.SWE.Models.UserEntity;
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 import com.FCI.SWE.Models.user;
 
 /**
@@ -67,7 +78,10 @@ public class Service
 {
 	
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 	/**
 	 * Registration Rest service, this service will be called to make
 	 * registration. This function will store user data in data store
@@ -137,7 +151,10 @@ public class Service
 	{
 		//System.out.println("aho y bntyyy  "+user.currentactive.getEmail()+emailfrom+emailto+stat);
 		boolean check=false;
+<<<<<<< HEAD
 		NotificationEntity obj = new NotificationEntity("com.FCI.SWE.Models.SendRequest","","");
+=======
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 		FriendEntity friend = new FriendEntity(emailto, emailfrom,stat);
 		check =friend.getFriend(emailto, emailfrom, stat);
 		System.out.println("bbbbbbbbbbb habla ="+check);
@@ -146,7 +163,10 @@ public class Service
 		{
 		    object.put("Status", "OK");
 			friend.saveFriend(stat);
+<<<<<<< HEAD
 			obj.saveNotificationRequest(emailto,emailfrom);
+=======
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 		}
 		else 
 		{
@@ -158,6 +178,7 @@ public class Service
 	
 	
 
+<<<<<<< HEAD
 	
 	
 	/**
@@ -201,6 +222,8 @@ public class Service
         System.out.println(object.toString());
 		return object.toString();
 	}
+=======
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
 	/**
 	 * ListReqestService Rest service, this service will be called to make
 	 * list request. This function will store friend data in data store
@@ -303,6 +326,7 @@ public class Service
 		return object.toString();
 	}	
 
+<<<<<<< HEAD
 	
 	
 
@@ -966,3 +990,6 @@ public class Service
 	 	return array.toJSONString();
 	}
 }	
+=======
+}	
+>>>>>>> 267eafb6cfdccb254acfd8b39ceaaacfc1567352
